@@ -5,9 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Page</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap');
-          
+        
         body {
             display: flex;
             justify-content: center;
@@ -15,88 +16,143 @@
             min-height: 100vh;
             background: url('download.jpg') no-repeat center center/cover;
         }
-        
+
         .login-box {
             display: flex;
             justify-content: center;
             flex-direction: column;
-            width: 440px;
+            width: 400px;
             padding: 30px;
-            background-color: rgba(255, 255, 255, 0.8);
-            border-radius: 10px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            border: 3px solid transparent;
+            animation: borderAnim 3s infinite linear;
         }
-        
+
+        @keyframes borderAnim {
+            0% { border-color: #ff6b6b; }
+            33% { border-color: #6bffb3; }
+            66% { border-color: #6ba2ff; }
+            100% { border-color: #ff6b6b; }
+        }
+
         .login-header {
             text-align: center;
             margin-bottom: 20px;
         }
-        
+
         .login-header h2 {
-            font-size: 40px;
+            font-size: 36px;
             font-weight: 800;
             color: #333;
         }
-        
+
         form {
             display: flex;
             flex-direction: column;
             gap: 15px;
         }
-        
+
+        .input-box {
+            position: relative;
+        }
+
         .input-box input {
             width: 100%;
-            padding: 12px;
+            padding: 12px 40px;
             border: 1px solid #ddd;
             border-radius: 8px;
             font-size: 16px;
             outline: none;
         }
-        
+
+        .input-box i {
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 18px;
+            color: #999;
+        }
+
         .input-box input:focus {
             border-color: #4CAF50;
             box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
         }
-        
+
         .forgot {
             display: flex;
             justify-content: space-between;
             font-size: 14px;
         }
-        
+
         .forgot a {
             color: #4CAF50;
             text-decoration: none;
         }
-        
+
         .forgot a:hover {
             text-decoration: underline;
         }
-        
+
         .input-submit input {
             width: 100%;
             padding: 12px;
-            background-color: #4CAF50;
+            background: linear-gradient(135deg, #ff6b6b, #6ba2ff);
             color: white;
             border: none;
             border-radius: 8px;
             font-size: 16px;
             cursor: pointer;
-            transition: background-color 0.3s ease;
+            transition: all 0.3s ease;
         }
-        
+
         .input-submit input:hover {
-            background-color: #45a049;
+            transform: scale(1.05);
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
         }
-        
+
         .register {
             text-align: center;
             margin-top: 10px;
         }
-        
+
         .register a {
             color: #4CAF50;
             text-decoration: none;
+        }
+
+        /* Responsiveness */
+        @media (max-width: 480px) {
+            .login-box {
+                width: 90%;
+                padding: 20px;
+            }
+
+            .login-header h2 {
+                font-size: 32px;
+            }
+
+            .input-box input {
+                font-size: 14px;
+                padding: 10px 35px;
+            }
+
+            .forgot {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .forgot section {
+                margin-bottom: 10px;
+            }
+
+            .input-submit input {
+                font-size: 14px;
+                padding: 10px;
+            }
         }
     </style>
 </head>
@@ -107,22 +163,27 @@
         </div>
         <form action="login_process.php" method="POST">
             <div class="input-box">
+                <i class="fas fa-user"></i>
                 <input type="text" name="username" placeholder="Username" autocomplete="off" required>
+            </div>
+            <div class="input-box">
+                <i class="fas fa-lock"></i>
+                <input type="password" name="password" placeholder="Password" required>
             </div>
             <div class="forgot">
                 <section>
                     <input type="checkbox" id="check" name="remember_me">
                     <label for="check">Remember me</label>
                 </section>      
+                <a href="#">Forgot Password?</a>
             </div>
             <div class="input-submit">
-                <input type="submit" value="Login" onclick="window.location.href='halaman.html'; return false;">
+                <input type="submit" value="Login">
             </div>
-            
-           
+            <div class="register">
+                Don't have an account? <a href="#">Sign Up</a>
+            </div>
         </form>
     </div>
 </body>
 </html>
-
-
