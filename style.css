@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap');
+        
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+        
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url('download.jpg') no-repeat center center/cover;
+}
+        
+.login-box {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 440px;
+    padding: 30px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+        
+.login-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+        
+.login-header h2 {
+    font-size: 40px;
+    font-weight: 800;
+    color: #333;
+}
+        
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+        
+.input-box input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    outline: none;
+}
+        
+.input-box input:focus {
+    border-color: #4CAF50;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+}
+        
+.forgot {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+}
+        
+.forgot a {
+    color: #4CAF50;
+    text-decoration: none;
+}
+        
+.forgot a:hover {
+    text-decoration: underline;
+}
+        
+.input-submit input {
+    width: 100%;
+    padding: 12px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+        
+.input-submit input:hover {
+    background-color: #45a049;
+}
+        
+.register {
+    text-align: center;
+    margin-top: 10px;
+}
+        
+.register a {
+    color: #4CAF50;
+    text-decoration: none;
+}
+

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pernyataan</title>
+    <link rel="stylesheet" href="style2.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #ff758c, #ff7eb3);
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+            width: 90%;
+            max-width: 400px;
+        }
+
+        h1 {
+            font-size: 26px;
+            color: #ff5e78;
+        }
+
+        .gif {
+            width: 150px;
+            margin: 20px 0;
+        }
+
+        .hearts {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .heart {
+            width: 50px;
+            height: 50px;
+            background: red;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 24px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .heart:hover {
+            transform: scale(1.2);
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .yes {
+            background: #ff5e78;
+            color: white;
+        }
+
+        .yes:hover {
+            background: #ff2e55;
+        }
+
+        .no {
+            background: #bbb;
+            color: white;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container" id="step1">
+        <h1>Klik 5 hati untuk melanjutkan! </h1>
+        <div class="hearts">
+            <div class="heart">❤️</div>
+            <div class="heart">❤️</div>
+            <div class="heart">❤️</div>
+            <div class="heart">❤️</div>
+            <div class="heart">❤️</div>
+        </div>
+    </div>
+
+    <div class="container hidden" id="step2">
+        <h1>Apakah aku boleh menjadi pacarmu? </h1>
+        <img src="Fw2zyXNaYAA8sy8.jpg" class="profile-pic" alt="Foto Saya">
+        <div class="buttons">
+            <button class="btn yes" onclick="acceptLove()">Yes! 💕</button>
+            <button class="btn no">No 😢</button>
+        </div>
+    </div>
+
+    <script>
+        let clickedHearts = 0;
+        $(".heart").click(function () {
+            $(this).fadeOut();
+            clickedHearts++;
+
+            if (clickedHearts >= 5) {
+                $("#step1").fadeOut(() => {
+                    $("#step2").fadeIn(500);
+                });
+            }
+        });
+
+        function acceptLove() {
+            window.location.href = "love.html"; // Alihkan ke halaman kejutan
+        }
+    </script>
+
+</body>
+</html>
